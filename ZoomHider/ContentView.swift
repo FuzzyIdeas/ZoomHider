@@ -1,0 +1,157 @@
+//
+//  ContentView.swift
+//  ZoomHider
+//
+//  Created by Alin Panaitiu on 21.12.2021.
+//
+import Defaults
+import LaunchAtLogin
+import Lowtech
+import LowtechPro
+import SwiftUI
+import VisualEffects
+
+let WINDOW_WIDTH: CGFloat = 300
+let WINDOW_PADDING_HORIZONTAL: CGFloat = 40
+let FULL_WINDOW_WIDTH = WINDOW_WIDTH + WINDOW_PADDING_HORIZONTAL * 2
+
+// MARK: - ContentView
+
+struct ContentView: View {
+    @Environment(\.colorScheme) var colorScheme
+    @Environment(\.colors) var colors
+    @ObservedObject var launchAtLogin = LaunchAtLogin.observable
+    @ObservedObject var app: AppDelegate
+    @ObservedObject var pro: LowtechPro
+    @Default(.hideMenubarIcon) var hideMenubarIcon
+    @Default(.paused) var paused
+    @Default(.faster) var faster
+    @Default(.enablePauseKey) var enablePauseKey
+
+    var header: some View {
+        HStack {
+            Text("Settings").font(.largeTitle).fontWeight(.black).padding(.bottom, 6)
+            if !hideMenubarIcon {
+                Spacer()
+                Button("Close window") { app.statusBar?.hidePopover(app) }
+                    .buttonStyle(FlatButton(color: Colors.red.opacity(0.7), textColor: colors.bg.primary))
+                    .font(.system(size: 12, weight: .semibold, design: .monospaced))
+                    .keyboardShortcut(KeyEquivalent("w"), modifiers: [.command])
+            }
+        }
+    }
+
+    var body: some View {
+        VStack(alignment: .leading) {
+            if hideMenubarIcon {
+                Semaphore()
+            }
+            header
+
+            VStack(alignment: .leading, spacing: 5) {
+                Toggle("Hide Zoom faster when it reappears", isOn: $faster)
+                    .toggleStyle(CheckboxToggleStyle(style: .circle))
+                    .foregroundColor(.primary)
+                Toggle(isOn: $enablePauseKey) {
+                    HStack(spacing: 3) {
+                        Text("Toggle hiding with")
+                        HStack(spacing: 3) {
+                            Text("⌥")
+                                .font(.system(size: 12, weight: .bold))
+                            Text("Right Option")
+                                .font(.system(size: 11, weight: .semibold, design: .monospaced))
+                        }
+                        .padding(.horizontal, 4)
+                        .padding(.vertical, 2)
+                        .background(RoundedRectangle(cornerRadius: 4, style: .continuous).fill(Color.primary.opacity(0.2)))
+                        Text("+")
+                        Text("Z")
+                            .font(.system(size: 11, weight: .semibold, design: .monospaced))
+                            .padding(.horizontal, 4)
+                            .padding(.vertical, 2)
+                            .background(RoundedRectangle(cornerRadius: 4, style: .continuous).fill(Color.primary.opacity(0.2)))
+                    }
+                }
+                .toggleStyle(CheckboxToggleStyle(style: .circle))
+                .foregroundColor(.primary)
+                Divider()
+                Toggle("Hide menubar icon", isOn: $hideMenubarIcon)
+                    .toggleStyle(CheckboxToggleStyle(style: .circle))
+                    .foregroundColor(.primary)
+                Toggle("Launch at login", isOn: $launchAtLogin.isEnabled)
+                    .toggleStyle(CheckboxToggleStyle(style: .circle))
+                    .foregroundColor(.primary)
+
+                #if DEBUG
+                    HStack(alignment: .center) {
+                        Button("Reset trial") { AppDelegate.shared.resetTrial() }
+                            .buttonStyle(FlatButton(color: Color.primary, textColor: colors.bg.primary))
+                            .font(.system(size: 12, weight: .semibold, design: .monospaced))
+                        Button("Expire trial") { AppDelegate.shared.expireTrial() }
+                            .buttonStyle(FlatButton(color: Color.primary, textColor: colors.bg.primary))
+                            .font(.system(size: 12, weight: .semibold, design: .monospaced))
+                    }.frame(maxWidth: .infinity, alignment: .center)
+                #endif
+
+                LicenseView(pro: pro)
+            }
+            .padding(.leading)
+            .padding(.bottom, 10)
+
+            footer
+        }
+        .frame(width: WINDOW_WIDTH)
+        .padding(.horizontal, WINDOW_PADDING_HORIZONTAL)
+        .padding(.bottom, 40)
+        .padding(.top, 20)
+        .background(bg)
+    }
+
+    var bg: some View {
+        ZStack {
+            VisualEffectBlur(material: .hudWindow, blendingMode: .behindWindow, state: .active)
+                .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
+                .padding(.horizontal, 20)
+                .padding(.bottom, 20)
+                .shadow(color: Colors.blackMauve.opacity(colorScheme == .dark ? 0.5 : 0.3), radius: 4, x: 0, y: 4)
+            RoundedRectangle(cornerRadius: 18, style: .continuous)
+                .fill((colorScheme == .dark ? Colors.blackMauve : .white).opacity(colorScheme == .dark ? 0.5 : 0.1))
+                .padding(.horizontal, 20)
+                .padding(.bottom, 20)
+        }
+    }
+
+    var footer: some View {
+        HStack(alignment: .center) {
+            Button(paused ? "Start" : "Pause") {
+                paused.toggle()
+            }
+            .buttonStyle(FlatButton(color: .orange, textColor: colors.bg.primary))
+            .font(.system(size: 13, weight: .semibold))
+            .keyboardShortcut(KeyEquivalent("q"), modifiers: [.command])
+            Spacer()
+            Text(paused ? "Hiding paused" : "Hiding Zoom floating controls")
+                .font(.caption.weight(.heavy))
+                .foregroundColor(.primary.opacity(0.3))
+            Spacer()
+            Button("Quit") {
+                NSApplication.shared.terminate(self)
+            }
+            .buttonStyle(FlatButton(color: Colors.red, textColor: colors.bg.primary))
+            .font(.system(size: 13, weight: .semibold))
+            .keyboardShortcut(KeyEquivalent("q"), modifiers: [.command])
+        }.frame(maxWidth: .infinity)
+    }
+}
+
+// MARK: - ContentView_Previews
+
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        Group {
+            ContentView(app: AppDelegate.shared, pro: AppDelegate.shared.pro)
+            ContentView(app: AppDelegate.shared, pro: AppDelegate.shared.pro)
+                .preferredColorScheme(.light)
+        }
+    }
+}

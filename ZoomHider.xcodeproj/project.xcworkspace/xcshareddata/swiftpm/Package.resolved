@@ -1,0 +1,142 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "AXSwift",
+        "repositoryURL": "https://github.com/tmandry/AXSwift",
+        "state": {
+          "branch": "main",
+          "revision": "e18a18453d135ad45809a384ee5139e05ea52def",
+          "version": null
+        }
+      },
+      {
+        "package": "Defaults",
+        "repositoryURL": "https://github.com/sindresorhus/Defaults",
+        "state": {
+          "branch": null,
+          "revision": "119f654d44f7b90f00dc11f7dd1c94a36f12576b",
+          "version": "6.2.1"
+        }
+      },
+      {
+        "package": "DynamicColor",
+        "repositoryURL": "https://github.com/yannickl/DynamicColor",
+        "state": {
+          "branch": null,
+          "revision": "d9beca13ca85baa50ee29832d0db5129fba69630",
+          "version": "5.0.1"
+        }
+      },
+      {
+        "package": "EonilFSEvents",
+        "repositoryURL": "https://github.com/eonil/FSEvents",
+        "state": {
+          "branch": null,
+          "revision": "e6b7cdfa2754454e194a45ee6c2004d0f630fe88",
+          "version": "0.1.7"
+        }
+      },
+      {
+        "package": "FuzzyFind",
+        "repositoryURL": "https://github.com/alin23/FuzzyFind",
+        "state": {
+          "branch": "main",
+          "revision": "549d644bbebdbc8792ee5ceb2c2801c80a225af3",
+          "version": null
+        }
+      },
+      {
+        "package": "LaunchAtLogin",
+        "repositoryURL": "https://github.com/sindresorhus/LaunchAtLogin",
+        "state": {
+          "branch": "main",
+          "revision": "e8171b3e38a2816f579f58f3dac1522aa39efe41",
+          "version": null
+        }
+      },
+      {
+        "package": "Magnet",
+        "repositoryURL": "https://github.com/alin23/Magnet",
+        "state": {
+          "branch": "dev",
+          "revision": "fda73dc564372e98b5e5e6f5452a19f6b92a0382",
+          "version": null
+        }
+      },
+      {
+        "package": "Paddle",
+        "repositoryURL": "https://github.com/alin23/PaddleSPM",
+        "state": {
+          "branch": "main",
+          "revision": "5b0b434fc7094884a6d26dee84e348648ac60b64",
+          "version": null
+        }
+      },
+      {
+        "package": "Path.swift",
+        "repositoryURL": "https://github.com/mxcl/Path.swift",
+        "state": {
+          "branch": null,
+          "revision": "9c6f807b0a76be0e27aecc908bc6f173400d839e",
+          "version": "1.4.0"
+        }
+      },
+      {
+        "package": "Regex",
+        "repositoryURL": "https://github.com/crossroadlabs/Regex",
+        "state": {
+          "branch": "master",
+          "revision": "166728756082a9cac6e4aed3ebbce8e41cb3a945",
+          "version": null
+        }
+      },
+      {
+        "package": "Sauce",
+        "repositoryURL": "https://github.com/Clipy/Sauce",
+        "state": {
+          "branch": null,
+          "revision": "2fcf7e43a242b183fdea3f2275ebec0d773b65f5",
+          "version": "2.2.0"
+        }
+      },
+      {
+        "package": "swift-atomics",
+        "repositoryURL": "https://github.com/apple/swift-atomics",
+        "state": {
+          "branch": null,
+          "revision": "919eb1d83e02121cdb434c7bfc1f0c66ef17febe",
+          "version": "1.0.2"
+        }
+      },
+      {
+        "package": "SwiftDate",
+        "repositoryURL": "https://github.com/malcommac/SwiftDate",
+        "state": {
+          "branch": null,
+          "revision": "6190d0cefff3013e77ed567e6b074f324e5c5bf5",
+          "version": "6.3.1"
+        }
+      },
+      {
+        "package": "SystemColors",
+        "repositoryURL": "https://github.com/diniska/swiftui-system-colors",
+        "state": {
+          "branch": null,
+          "revision": "56122629d6321eee77cbe8e19733c14e8895528c",
+          "version": "1.1.0"
+        }
+      },
+      {
+        "package": "VisualEffects",
+        "repositoryURL": "https://github.com/twostraws/VisualEffects",
+        "state": {
+          "branch": null,
+          "revision": "8ff7f90f9650d9db5774275d0b1f07ef642ecf4d",
+          "version": "1.0.3"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
