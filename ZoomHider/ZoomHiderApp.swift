@@ -158,9 +158,9 @@ class AppDelegate: LowtechProAppDelegate {
         trialText = "You can try ZoomHider for free for the next 7 days! We hope you enjoy it."
         image = "AppIcon"
 
-        if Defaults[.launchCount] == 1 {
-            Defaults[.hideMenubarIcon] = true
-        }
+//        if Defaults[.launchCount] == 1 {
+//            Defaults[.hideMenubarIcon] = true
+//        }
     }
 
     func initZoomHider(timeInterval: TimeInterval) {
@@ -182,9 +182,10 @@ class AppDelegate: LowtechProAppDelegate {
 
     override func applicationDidFinishLaunching(_ notification: Notification) {
         initPro()
+        showPopoverOnFirstLaunch = false
         specialKey = Defaults[.enablePauseKey] ? "z" : ""
         showPopoverOnSpecialKey = false
-        accentColor = Colors.blue
+        accentColor = Colors.blue.blended(withFraction: 0.3, of: .white)
         contentView = AnyView(erasing: ContentView(app: self, pro: pro))
 
         #if !DEBUG
@@ -195,24 +196,23 @@ class AppDelegate: LowtechProAppDelegate {
 
         Defaults.publisher(.paused)
             .debounce(for: .milliseconds(10), scheduler: RunLoop.main)
-            .sink { paused in
-                moveZoom(offScreen: !paused.newValue)
-            }.store(in: &observers)
+            .sink { paused in moveZoom(offScreen: !paused.newValue) }
+            .store(in: &observers)
 
         Defaults.publisher(.faster)
             .debounce(for: .seconds(1), scheduler: RunLoop.main)
-            .sink { faster in
-                self.initZoomHider(timeInterval: faster.newValue ? 0.3 : 1)
-            }.store(in: &observers)
+            .sink { faster in self.initZoomHider(timeInterval: faster.newValue ? 0.3 : 1) }
+            .store(in: &observers)
 
         Defaults.publisher(.enablePauseKey)
             .debounce(for: .seconds(1), scheduler: RunLoop.main)
-            .sink { enableKey in
-                self.specialKey = enableKey.newValue ? "z" : ""
-            }.store(in: &observers)
+            .sink { enableKey in self.specialKey = enableKey.newValue ? "z" : "" }
+            .store(in: &observers)
 
         super.applicationDidFinishLaunching(notification)
-        pro.verifyLicense()
+
+        pro.checkProLicense()
+        updateController.startUpdater()
     }
 }
 

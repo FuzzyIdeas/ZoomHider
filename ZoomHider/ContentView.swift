@@ -11,9 +11,13 @@ import LowtechPro
 import SwiftUI
 import VisualEffects
 
-let WINDOW_WIDTH: CGFloat = 300
+let WINDOW_WIDTH: CGFloat = 310
 let WINDOW_PADDING_HORIZONTAL: CGFloat = 40
 let FULL_WINDOW_WIDTH = WINDOW_WIDTH + WINDOW_PADDING_HORIZONTAL * 2
+
+extension Defaults.Keys {
+    static let showAdditionalInfo = Key<Bool>("showAdditionalInfo", default: true)
+}
 
 // MARK: - ContentView
 
@@ -27,6 +31,7 @@ struct ContentView: View {
     @Default(.paused) var paused
     @Default(.faster) var faster
     @Default(.enablePauseKey) var enablePauseKey
+    @Default(.showAdditionalInfo) var showAdditionalInfo
 
     var header: some View {
         HStack {
@@ -34,7 +39,7 @@ struct ContentView: View {
             if !hideMenubarIcon {
                 Spacer()
                 Button("Close window") { app.statusBar?.hidePopover(app) }
-                    .buttonStyle(FlatButton(color: Colors.red.opacity(0.7), textColor: colors.bg.primary))
+                    .buttonStyle(FlatButton(color: Colors.red.opacity(0.7), textColor: .white))
                     .font(.system(size: 12, weight: .semibold, design: .monospaced))
                     .keyboardShortcut(KeyEquivalent("w"), modifiers: [.command])
             }
@@ -42,69 +47,81 @@ struct ContentView: View {
     }
 
     var body: some View {
-        VStack(alignment: .leading) {
-            if hideMenubarIcon {
-                Semaphore()
-            }
-            header
+        GeometryReader { geom in
+            VStack(alignment: .leading) {
+                if hideMenubarIcon {
+                    Semaphore()
+                }
+                header
 
-            VStack(alignment: .leading, spacing: 5) {
-                Toggle("Hide Zoom faster when it reappears", isOn: $faster)
-                    .toggleStyle(CheckboxToggleStyle(style: .circle))
-                    .foregroundColor(.primary)
-                Toggle(isOn: $enablePauseKey) {
-                    HStack(spacing: 3) {
-                        Text("Toggle hiding with")
+                VStack(alignment: .leading, spacing: 5) {
+                    Toggle("Hide Zoom faster when it reappears", isOn: $faster)
+                        .toggleStyle(CheckboxToggleStyle(style: .circle))
+                        .foregroundColor(.primary)
+                    Toggle(isOn: $enablePauseKey) {
                         HStack(spacing: 3) {
-                            Text("⌥")
-                                .font(.system(size: 12, weight: .bold))
-                            Text("Right Option")
-                                .font(.system(size: 11, weight: .semibold, design: .monospaced))
-                        }
-                        .padding(.horizontal, 4)
-                        .padding(.vertical, 2)
-                        .background(RoundedRectangle(cornerRadius: 4, style: .continuous).fill(Color.primary.opacity(0.2)))
-                        Text("+")
-                        Text("Z")
-                            .font(.system(size: 11, weight: .semibold, design: .monospaced))
+                            Text("Toggle hiding with")
+                            HStack(spacing: 3) {
+                                Text("⌥")
+                                    .font(.system(size: 12, weight: .bold))
+                                Text("Right Option")
+                                    .font(.system(size: 11, weight: .semibold, design: .monospaced))
+                            }
                             .padding(.horizontal, 4)
                             .padding(.vertical, 2)
                             .background(RoundedRectangle(cornerRadius: 4, style: .continuous).fill(Color.primary.opacity(0.2)))
+                            Text("+")
+                            Text("Z")
+                                .font(.system(size: 11, weight: .semibold, design: .monospaced))
+                                .padding(.horizontal, 4)
+                                .padding(.vertical, 2)
+                                .background(RoundedRectangle(cornerRadius: 4, style: .continuous).fill(Color.primary.opacity(0.2)))
+                        }
+                    }
+                    .toggleStyle(CheckboxToggleStyle(style: .circle))
+                    .foregroundColor(.primary)
+                    Divider().padding(.vertical, 6)
+                    Toggle("Hide menubar icon", isOn: $hideMenubarIcon)
+                        .toggleStyle(CheckboxToggleStyle(style: .circle))
+                        .foregroundColor(.primary)
+                    Toggle("Launch at login", isOn: $launchAtLogin.isEnabled)
+                        .toggleStyle(CheckboxToggleStyle(style: .circle))
+                        .foregroundColor(.primary)
+
+//                #if DEBUG
+//                    HStack(alignment: .center) {
+//                        Button("Reset trial") { AppDelegate.shared.resetTrial() }
+//                            .buttonStyle(FlatButton(color: Color.primary, textColor: colors.bg.primary))
+//                            .font(.system(size: 12, weight: .semibold, design: .monospaced))
+//                        Button("Expire trial") { AppDelegate.shared.expireTrial() }
+//                            .buttonStyle(FlatButton(color: Color.primary, textColor: colors.bg.primary))
+//                            .font(.system(size: 12, weight: .semibold, design: .monospaced))
+//                    }.frame(maxWidth: .infinity, alignment: .center)
+//                #endif
+                }
+                .padding(.leading)
+                .padding(.bottom, 6)
+
+                VStack(spacing: 4) {
+                    Toggle("\(showAdditionalInfo ? "Hide" : "Show") app info", isOn: $showAdditionalInfo.animation(.fastSpring))
+                        .toggleStyle(DetailToggleStyle(style: .circle))
+                        .foregroundColor(.secondary)
+                        .font(.system(size: 12, weight: .semibold))
+                    if showAdditionalInfo {
+                        LicenseView(pro: pro)
+                        VersionView(updater: AppDelegate.shared.updateController.updater).padding(.bottom, 6)
                     }
                 }
-                .toggleStyle(CheckboxToggleStyle(style: .circle))
-                .foregroundColor(.primary)
-                Divider()
-                Toggle("Hide menubar icon", isOn: $hideMenubarIcon)
-                    .toggleStyle(CheckboxToggleStyle(style: .circle))
-                    .foregroundColor(.primary)
-                Toggle("Launch at login", isOn: $launchAtLogin.isEnabled)
-                    .toggleStyle(CheckboxToggleStyle(style: .circle))
-                    .foregroundColor(.primary)
 
-                #if DEBUG
-                    HStack(alignment: .center) {
-                        Button("Reset trial") { AppDelegate.shared.resetTrial() }
-                            .buttonStyle(FlatButton(color: Color.primary, textColor: colors.bg.primary))
-                            .font(.system(size: 12, weight: .semibold, design: .monospaced))
-                        Button("Expire trial") { AppDelegate.shared.expireTrial() }
-                            .buttonStyle(FlatButton(color: Color.primary, textColor: colors.bg.primary))
-                            .font(.system(size: 12, weight: .semibold, design: .monospaced))
-                    }.frame(maxWidth: .infinity, alignment: .center)
-                #endif
-
-                LicenseView(pro: pro)
+                footer
             }
-            .padding(.leading)
-            .padding(.bottom, 10)
-
-            footer
+            .frame(width: WINDOW_WIDTH)
+            .padding(.horizontal, WINDOW_PADDING_HORIZONTAL)
+            .padding(.bottom, 40)
+            .padding(.top, 20)
+            .background(bg)
         }
-        .frame(width: WINDOW_WIDTH)
-        .padding(.horizontal, WINDOW_PADDING_HORIZONTAL)
-        .padding(.bottom, 40)
-        .padding(.top, 20)
-        .background(bg)
+        .frame(width: WINDOW_WIDTH + WINDOW_PADDING_HORIZONTAL * 2, height: 440)
     }
 
     var bg: some View {
@@ -126,7 +143,7 @@ struct ContentView: View {
             Button(paused ? "Start" : "Pause") {
                 paused.toggle()
             }
-            .buttonStyle(FlatButton(color: .orange, textColor: colors.bg.primary))
+            .buttonStyle(FlatButton(color: .blue.opacity(0.6), textColor: .white))
             .font(.system(size: 13, weight: .semibold))
             .keyboardShortcut(KeyEquivalent("q"), modifiers: [.command])
             Spacer()
