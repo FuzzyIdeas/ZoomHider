@@ -11,7 +11,6 @@ import Defaults
 import Lowtech
 import LowtechPro
 import Magnet
-import Paddle
 import SwiftUI
 
 extension Defaults.Keys {
