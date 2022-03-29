@@ -18,14 +18,14 @@ Releases/CHANGELOG.html: CHANGELOG.md
 
 changelog: Releases/CHANGELOG.html
 
+release: SHELL=/usr/local/bin/fish
 release: changelog
-	echo "$(VERSION)" > /tmp/release_file_$(VERSION).md
-	echo "" >> /tmp/release_file_$(VERSION).md
-	echo "" >> /tmp/release_file_$(VERSION).md
-	cat ReleaseNotes/$(VERSION).md >> /tmp/release_file_$(VERSION).md
-	gh release create v$(VERSION) -F /tmp/release_file_$(VERSION).md "Releases/$(SCHEME)-$(VERSION).zip#$(SCHEME).zip"
+	upload-app --build --devid --notarize -c Release -s ZoomHider -v $(VERSION)
+	cp /tmp/apps/ZoomHider.zip Releases/ZoomHider-$(VERSION).zip
+	make appcast
+	make upload
 
-setversion: OLD_VERSION=$(shell xcodebuild -scheme "$(SCHEME)" -configuration $(ENV) -showBuildSettings -json 2>/dev/null | jq -r .buildSettings.MARKETING_VERSION)
+setversion: OLD_VERSION=$(shell xcodebuild -scheme "$(SCHEME)" -configuration $(ENV) -showBuildSettings -json 2>/dev/null | jq -r .[0].buildSettings.MARKETING_VERSION)
 setversion:
 ifneq (, $(VERSION))
 	rg -l 'VERSION = "?$(OLD_VERSION)"?' && sed -E -i .bkp 's/VERSION = "?$(OLD_VERSION)"?/VERSION = $(VERSION)/g' $$(rg -l 'VERSION = "?$(OLD_VERSION)"?')

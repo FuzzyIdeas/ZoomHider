@@ -145,28 +145,10 @@ class AppDelegate: LowtechProAppDelegate {
 
     var zoomHider: Timer?
 
-    func initPro() {
-        paddleVendorID = "122873"
-        paddleAPIKey = "e1e517a68c1ed1bea2ac968a593ac147"
-        paddleProductID = "761946"
-        productName = "ZoomHider"
-        vendorName = "Panaitiu Alin Valentin PFA"
-        price = 2
-        currency = "USD"
-        trialDays = 7
-        trialType = .timeLimited
-        trialText = "You can try ZoomHider for free for the next 7 days! We hope you enjoy it."
-        image = "AppIcon"
-
-//        if Defaults[.launchCount] == 1 {
-//            Defaults[.hideMenubarIcon] = true
-//        }
-    }
-
     func initZoomHider(timeInterval: TimeInterval) {
         zoomHider?.invalidate()
         zoomHider = Timer.scheduledTimer(withTimeInterval: timeInterval, repeats: true) { _ in
-            guard !Defaults[.paused], self.pro.productActivated || self.pro.onTrial else { return }
+            guard !Defaults[.paused] else { return }
             moveZoom(offScreen: true)
         }
     }
@@ -181,12 +163,11 @@ class AppDelegate: LowtechProAppDelegate {
     }
 
     override func applicationDidFinishLaunching(_ notification: Notification) {
-        initPro()
         showPopoverOnFirstLaunch = false
         specialKey = Defaults[.enablePauseKey] ? "z" : ""
         showPopoverOnSpecialKey = false
         accentColor = Colors.blue.blended(withFraction: 0.3, of: .white)
-        contentView = AnyView(erasing: ContentView(app: self, pro: pro))
+        contentView = AnyView(erasing: ContentView(app: self))
 
         #if !DEBUG
             acquirePrivileges()
@@ -211,7 +192,6 @@ class AppDelegate: LowtechProAppDelegate {
 
         super.applicationDidFinishLaunching(notification)
 
-        pro.checkProLicense()
         updateController.startUpdater()
     }
 }

@@ -26,7 +26,6 @@ struct ContentView: View {
     @Environment(\.colors) var colors
     @ObservedObject var launchAtLogin = LaunchAtLogin.observable
     @ObservedObject var app: AppDelegate
-    @ObservedObject var pro: LowtechPro
     @Default(.hideMenubarIcon) var hideMenubarIcon
     @Default(.paused) var paused
     @Default(.faster) var faster
@@ -102,13 +101,12 @@ struct ContentView: View {
                 .padding(.leading)
                 .padding(.bottom, 6)
 
-                VStack(spacing: 4) {
+                VStack(alignment: .leading, spacing: 4) {
                     Toggle("\(showAdditionalInfo ? "Hide" : "Show") app info", isOn: $showAdditionalInfo.animation(.fastSpring))
                         .toggleStyle(DetailToggleStyle(style: .circle))
-                        .foregroundColor(.secondary)
+                        .foregroundColor(colors.gray)
                         .font(.system(size: 12, weight: .semibold))
                     if showAdditionalInfo {
-                        LicenseView(pro: pro)
                         VersionView(updater: AppDelegate.shared.updateController.updater).padding(.bottom, 6)
                     }
                 }
@@ -132,7 +130,7 @@ struct ContentView: View {
                 .padding(.bottom, 20)
                 .shadow(color: Colors.blackMauve.opacity(colorScheme == .dark ? 0.5 : 0.3), radius: 4, x: 0, y: 4)
             RoundedRectangle(cornerRadius: 18, style: .continuous)
-                .fill((colorScheme == .dark ? Colors.blackMauve : .white).opacity(colorScheme == .dark ? 0.5 : 0.1))
+                .fill(Colors.blue.opacity(0.1))
                 .padding(.horizontal, 20)
                 .padding(.bottom, 20)
         }
@@ -166,8 +164,8 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            ContentView(app: AppDelegate.shared, pro: AppDelegate.shared.pro)
-            ContentView(app: AppDelegate.shared, pro: AppDelegate.shared.pro)
+            ContentView(app: AppDelegate.shared)
+            ContentView(app: AppDelegate.shared)
                 .preferredColorScheme(.light)
         }
     }
