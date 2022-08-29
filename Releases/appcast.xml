@@ -1,0 +1,18 @@
+<?xml version="1.0" standalone="yes"?>
+<rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
+    <channel>
+        <title>ZoomHider</title>
+        <item>
+            <title>1.0.0</title>
+            <pubDate>Tue, 29 Mar 2022 13:28:36 +0300</pubDate>
+            <sparkle:version>1.0.0</sparkle:version>
+            <sparkle:shortVersionString>1.0.0</sparkle:shortVersionString>
+            <description><![CDATA[<h1>ZoomHider</h1>
+<p>Hide Zoom floating controls when sharing screen.</p>
+<p>Keep them hidden even when pressing <code>Esc</code></p>
+]]></description>
+            <sparkle:minimumSystemVersion>11.0</sparkle:minimumSystemVersion>
+            <enclosure url="https://files.lowtechguys.com/ZoomHider/ZoomHider-1.0.0.zip" length="3253898" type="application/octet-stream" sparkle:edSignature="SyX9WNxd+vaR2SQWOyWaGnyWdRlcVZR64LPsIuspjy1xjidHc3sAMeiIvfSXW+9Tu1CHwohJl0ws+n1lT5LCAw=="/>
+        </item>
+    </channel>
+</rss>

@@ -1,0 +1,437 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C76ADF2C28BD1A900053B554 /* LowtechIndie in Frameworks */ = {isa = PBXBuildFile; productRef = C76ADF2B28BD1A900053B554 /* LowtechIndie */; };
+		C7C52BD027EBB471006B2447 /* Workarounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C52BCF27EBB471006B2447 /* Workarounds.swift */; };
+		C7CC6DBD2771B2D2002E2746 /* ZoomHiderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CC6DBC2771B2D2002E2746 /* ZoomHiderApp.swift */; };
+		C7CC6DBF2771B2D2002E2746 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CC6DBE2771B2D2002E2746 /* ContentView.swift */; };
+		C7CC6DC12771B2D2002E2746 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7CC6DC02771B2D2002E2746 /* Assets.xcassets */; };
+		C7CC6DC42771B2D2002E2746 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7CC6DC32771B2D2002E2746 /* Preview Assets.xcassets */; };
+		C7CC6DCD2771BFA8002E2746 /* AXSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C7CC6DCC2771BFA8002E2746 /* AXSwift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		C702D9D8277235FA00F27B93 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		C7C52BCF27EBB471006B2447 /* Workarounds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workarounds.swift; sourceTree = "<group>"; };
+		C7CC6DB92771B2D1002E2746 /* ZoomHider.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZoomHider.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7CC6DBC2771B2D2002E2746 /* ZoomHiderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomHiderApp.swift; sourceTree = "<group>"; };
+		C7CC6DBE2771B2D2002E2746 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		C7CC6DC02771B2D2002E2746 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C7CC6DC32771B2D2002E2746 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		C7CC6DC52771B2D2002E2746 /* ZoomHider.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ZoomHider.entitlements; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C7CC6DB62771B2D1002E2746 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C7CC6DCD2771BFA8002E2746 /* AXSwift in Frameworks */,
+				C76ADF2C28BD1A900053B554 /* LowtechIndie in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C79F28B328BD0EF800759E95 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C7CC6DB02771B2D1002E2746 = {
+			isa = PBXGroup;
+			children = (
+				C7CC6DBB2771B2D1002E2746 /* ZoomHider */,
+				C7CC6DBA2771B2D1002E2746 /* Products */,
+				C79F28B328BD0EF800759E95 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		C7CC6DBA2771B2D1002E2746 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C7CC6DB92771B2D1002E2746 /* ZoomHider.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C7CC6DBB2771B2D1002E2746 /* ZoomHider */ = {
+			isa = PBXGroup;
+			children = (
+				C702D9D8277235FA00F27B93 /* Info.plist */,
+				C7CC6DBC2771B2D2002E2746 /* ZoomHiderApp.swift */,
+				C7CC6DBE2771B2D2002E2746 /* ContentView.swift */,
+				C7CC6DC02771B2D2002E2746 /* Assets.xcassets */,
+				C7CC6DC52771B2D2002E2746 /* ZoomHider.entitlements */,
+				C7CC6DC22771B2D2002E2746 /* Preview Content */,
+				C7C52BCF27EBB471006B2447 /* Workarounds.swift */,
+			);
+			path = ZoomHider;
+			sourceTree = "<group>";
+		};
+		C7CC6DC22771B2D2002E2746 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				C7CC6DC32771B2D2002E2746 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C7CC6DB82771B2D1002E2746 /* ZoomHider */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C7CC6DC82771B2D2002E2746 /* Build configuration list for PBXNativeTarget "ZoomHider" */;
+			buildPhases = (
+				C7CC6DB52771B2D1002E2746 /* Sources */,
+				C7CC6DB62771B2D1002E2746 /* Frameworks */,
+				C7CC6DB72771B2D1002E2746 /* Resources */,
+				C702D9DE27723BE900F27B93 /* Copy Launch At Login Helper */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ZoomHider;
+			packageProductDependencies = (
+				C7CC6DCC2771BFA8002E2746 /* AXSwift */,
+				C76ADF2B28BD1A900053B554 /* LowtechIndie */,
+			);
+			productName = ZoomHider;
+			productReference = C7CC6DB92771B2D1002E2746 /* ZoomHider.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C7CC6DB12771B2D1002E2746 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1320;
+				LastUpgradeCheck = 1320;
+				TargetAttributes = {
+					C7CC6DB82771B2D1002E2746 = {
+						CreatedOnToolsVersion = 13.2;
+					};
+				};
+			};
+			buildConfigurationList = C7CC6DB42771B2D1002E2746 /* Build configuration list for PBXProject "ZoomHider" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C7CC6DB02771B2D1002E2746;
+			packageReferences = (
+				C7CC6DCB2771BFA8002E2746 /* XCRemoteSwiftPackageReference "AXSwift" */,
+				C76ADF2A28BD1A900053B554 /* XCRemoteSwiftPackageReference "Lowtech" */,
+			);
+			productRefGroup = C7CC6DBA2771B2D1002E2746 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C7CC6DB82771B2D1002E2746 /* ZoomHider */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C7CC6DB72771B2D1002E2746 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C7CC6DC42771B2D2002E2746 /* Preview Assets.xcassets in Resources */,
+				C7CC6DC12771B2D2002E2746 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C702D9DE27723BE900F27B93 /* Copy Launch At Login Helper */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Launch At Login Helper";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${BUILT_PRODUCTS_DIR}/LaunchAtLogin_LaunchAtLogin.bundle/Contents/Resources/copy-helper-swiftpm.sh\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C7CC6DB52771B2D1002E2746 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C7CC6DBF2771B2D2002E2746 /* ContentView.swift in Sources */,
+				C7CC6DBD2771B2D2002E2746 /* ZoomHiderApp.swift in Sources */,
+				C7C52BD027EBB471006B2447 /* Workarounds.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		C7CC6DC62771B2D2002E2746 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		C7CC6DC72771B2D2002E2746 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		C7CC6DC92771B2D2002E2746 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ZoomHider/ZoomHider.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1.0.0;
+				DEVELOPMENT_ASSET_PATHS = "\"ZoomHider/Preview Content\"";
+				DEVELOPMENT_TEAM = RDDXV84A73;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ZoomHider/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ZoomHider;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				LLVM_LTO = YES;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lowtechguys.ZoomHider;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG PADDLE";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		C7CC6DCA2771B2D2002E2746 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ZoomHider/ZoomHider.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1.0.0;
+				DEVELOPMENT_ASSET_PATHS = "\"ZoomHider/Preview Content\"";
+				DEVELOPMENT_TEAM = RDDXV84A73;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ZoomHider/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ZoomHider;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				LLVM_LTO = YES;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lowtechguys.ZoomHider;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = PADDLE;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C7CC6DB42771B2D1002E2746 /* Build configuration list for PBXProject "ZoomHider" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C7CC6DC62771B2D2002E2746 /* Debug */,
+				C7CC6DC72771B2D2002E2746 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C7CC6DC82771B2D2002E2746 /* Build configuration list for PBXNativeTarget "ZoomHider" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C7CC6DC92771B2D2002E2746 /* Debug */,
+				C7CC6DCA2771B2D2002E2746 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C76ADF2A28BD1A900053B554 /* XCRemoteSwiftPackageReference "Lowtech" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/FuzzyIdeas/Lowtech";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		C7CC6DCB2771BFA8002E2746 /* XCRemoteSwiftPackageReference "AXSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/tmandry/AXSwift";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C76ADF2B28BD1A900053B554 /* LowtechIndie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C76ADF2A28BD1A900053B554 /* XCRemoteSwiftPackageReference "Lowtech" */;
+			productName = LowtechIndie;
+		};
+		C7CC6DCC2771BFA8002E2746 /* AXSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C7CC6DCB2771BFA8002E2746 /* XCRemoteSwiftPackageReference "AXSwift" */;
+			productName = AXSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = C7CC6DB12771B2D1002E2746 /* Project object */;
+}
