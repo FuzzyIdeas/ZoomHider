@@ -3,6 +3,18 @@
     <channel>
         <title>ZoomHider</title>
         <item>
+            <title>1.1.0</title>
+            <pubDate>Thu, 14 Sep 2023 09:46:16 +0300</pubDate>
+            <sparkle:version>1.1.0</sparkle:version>
+            <sparkle:shortVersionString>1.1.0</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>11.0</sparkle:minimumSystemVersion>
+            <sparkle:releaseNotesLink>https://files.lowtechguys.com/ReleaseNotes/ZoomHider-1.1.0.html</sparkle:releaseNotesLink>
+            <enclosure url="https://files.lowtechguys.com/releases/ZoomHider-1.1.0.dmg" length="5103860" type="application/octet-stream" sparkle:edSignature="W7fURQYA6kZvALxkjIwXt8G/d1zqJlW+krTBIgY7UQeaL6HjfxLWj1sqakSCdQAa4ualn04s8NhxtOwbTFnlAA=="/>
+            <sparkle:deltas>
+                <enclosure url="https://files.lowtechguys.com/releases/ZoomHider1.1.0-1.0.0.delta" sparkle:deltaFrom="1.0.0" length="2502762" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="1381696" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,en" sparkle:edSignature="K6cTuyf3WCZiDsuxFxoEWw/Zxqc97i5O853Pe9fY2mxJGoz5HyKlKypJ7ewwog1BS3g6t4BlsNiYMthi/Y8uCA=="/>
+            </sparkle:deltas>
+        </item>
+        <item>
             <title>1.0.0</title>
             <pubDate>Tue, 29 Mar 2022 13:28:36 +0300</pubDate>
             <sparkle:version>1.0.0</sparkle:version>
@@ -12,7 +24,7 @@
 <p>Keep them hidden even when pressing <code>Esc</code></p>
 ]]></description>
             <sparkle:minimumSystemVersion>11.0</sparkle:minimumSystemVersion>
-            <enclosure url="https://files.lowtechguys.com/ZoomHider/ZoomHider-1.0.0.zip" length="3253898" type="application/octet-stream" sparkle:edSignature="SyX9WNxd+vaR2SQWOyWaGnyWdRlcVZR64LPsIuspjy1xjidHc3sAMeiIvfSXW+9Tu1CHwohJl0ws+n1lT5LCAw=="/>
+            <enclosure url="https://files.lowtechguys.com/releases/ZoomHider-1.0.0.zip" length="3253898" type="application/octet-stream" sparkle:edSignature="SyX9WNxd+vaR2SQWOyWaGnyWdRlcVZR64LPsIuspjy1xjidHc3sAMeiIvfSXW+9Tu1CHwohJl0ws+n1lT5LCAw=="/>
         </item>
     </channel>
 </rss>

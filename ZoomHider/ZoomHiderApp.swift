@@ -17,13 +17,12 @@ extension Defaults.Keys {
     static let paused = Key<Bool>("paused", default: false)
     static let faster = Key<Bool>("faster", default: false)
     static let enablePauseKey = Key<Bool>("enablePauseKey", default: true)
+    static let enableEscPauseKey = Key<Bool>("enableEscPauseKey", default: true)
 }
 
 // MARK: - AXWindow
 
 struct AXWindow {
-    // MARK: Lifecycle
-
     init?(from window: UIElement, runningApp: NSRunningApplication? = nil) {
         guard let attrs = try? window.getMultipleAttributes(
             .frame,
@@ -60,8 +59,6 @@ struct AXWindow {
         self.runningApp = runningApp
     }
 
-    // MARK: Internal
-
     let element: UIElement
     let frame: NSRect
     let fullScreen: Bool
@@ -86,7 +83,7 @@ func acquirePrivileges() {
     Timer.scheduledTimer(withTimeInterval: 2, repeats: true) { timer in
         if AXIsProcessTrusted() {
             timer.invalidate()
-            AppDelegate.instance.statusBar?.showPopover(AppDelegate.instance)
+            Task.init { await MainActor.run { AppDelegate.instance.statusBar?.showPopover(AppDelegate.instance) }}
         }
     }
 }
@@ -144,6 +141,42 @@ class AppDelegate: LowtechIndieAppDelegate {
 
     var zoomHider: Timer?
 
+    @MainActor
+    lazy var globalKeyMonitor = GlobalEventMonitor(mask: .keyDown) { event in
+        guard let event, event.keyCode == SauceKey.escape.QWERTYKeyCode, !event.modifierFlags.containsSupportModifiers else {
+            return
+        }
+        self.escKeyPressedCount += 1
+    }
+    @MainActor
+    lazy var localKeyMonitor = LocalEventMonitor(mask: .keyDown) { event in
+        guard event.keyCode == SauceKey.escape.QWERTYKeyCode, !event.modifierFlags.containsSupportModifiers else {
+            return event
+        }
+        self.escKeyPressedCount += 1
+        return nil
+    }
+
+    var escKeyPressedCountResetter: DispatchWorkItem? {
+        didSet {
+            oldValue?.cancel()
+        }
+    }
+
+    var escKeyPressedCount = 0 {
+        didSet {
+            guard escKeyPressedCount < 3 else {
+                escKeyPressedCountResetter = nil
+                escKeyPressedCount = 0
+                Defaults[.paused].toggle()
+                return
+            }
+            escKeyPressedCountResetter = mainAsyncAfter(ms: 500) {
+                self.escKeyPressedCount = 0
+            }
+        }
+    }
+
     func initZoomHider(timeInterval: TimeInterval) {
         zoomHider?.invalidate()
         zoomHider = Timer.scheduledTimer(withTimeInterval: timeInterval, repeats: true) { _ in
@@ -151,18 +184,20 @@ class AppDelegate: LowtechIndieAppDelegate {
             moveZoom(offScreen: true)
         }
     }
-
     override func applicationDidFinishLaunching(_ notification: Notification) {
         showPopoverOnFirstLaunch = false
-        KM.specialKey = Defaults[.enablePauseKey] ? "z" : ""
+        KM.specialKey = Defaults[.enablePauseKey] ? .z : nil
         showPopoverOnSpecialKey = false
         accentColor = Colors.blue.blended(withFraction: 0.3, of: .white)
         contentView = AnyView(erasing: ContentView(app: self))
+        if Defaults[.enableEscPauseKey] {
+            globalKeyMonitor.stop()
+            localKeyMonitor.stop()
+            globalKeyMonitor.start()
+            localKeyMonitor.start()
+        }
 
-        #if !DEBUG
-            acquirePrivileges()
-        #endif
-
+        acquirePrivileges()
         initZoomHider(timeInterval: Defaults[.faster] ? 0.3 : 1)
 
         Defaults.publisher(.paused)
@@ -177,7 +212,19 @@ class AppDelegate: LowtechIndieAppDelegate {
 
         Defaults.publisher(.enablePauseKey)
             .debounce(for: .milliseconds(200), scheduler: RunLoop.main)
-            .sink { enableKey in KM.specialKey = enableKey.newValue ? "z" : "" }
+            .sink { enableKey in KM.specialKey = enableKey.newValue ? .z : nil }
+            .store(in: &observers)
+
+        Defaults.publisher(.enableEscPauseKey)
+            .debounce(for: .milliseconds(200), scheduler: RunLoop.main)
+            .sink { enableKey in
+                self.globalKeyMonitor.stop()
+                self.localKeyMonitor.stop()
+                if enableKey.newValue {
+                    self.globalKeyMonitor.start()
+                    self.localKeyMonitor.start()
+                }
+            }
             .store(in: &observers)
 
         super.applicationDidFinishLaunching(notification)

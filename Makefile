@@ -5,53 +5,64 @@ endef
 
 .EXPORT_ALL_VARIABLES:
 
-SCHEME=ZoomHider
-ENV=Release
-DISABLE_NOTARIZATION := ${DISABLE_NOTARIZATION}
+BETA=
 
-CHANGELOG.md: $(RELEASE_NOTES_FILES)
-	tail -n +1 `ls -r ReleaseNotes/*.md` | sed -E 's/==> ReleaseNotes\/(.+)\.md <==/# \1/g' > CHANGELOG.md
-
-Releases/CHANGELOG.html: CHANGELOG.md
-	@echo Compiling $< to $@
-	@md2html --github -o $@ $<
-
-changelog: Releases/CHANGELOG.html
-
-release: SHELL=/usr/local/bin/fish
-release: changelog
-	upload-app --build --devid --notarize -c Release -s ZoomHider -v $(VERSION)
-	cp /tmp/apps/ZoomHider.zip Releases/ZoomHider-$(VERSION).zip
-	make appcast
-	make upload
-
-setversion: OLD_VERSION=$(shell xcodebuild -scheme "$(SCHEME)" -configuration $(ENV) -showBuildSettings -json 2>/dev/null | jq -r .[0].buildSettings.MARKETING_VERSION)
-setversion:
-ifneq (, $(VERSION))
-	rg -l 'VERSION = "?$(OLD_VERSION)"?' && sed -E -i .bkp 's/VERSION = "?$(OLD_VERSION)"?/VERSION = $(VERSION)/g' $$(rg -l 'VERSION = "?$(OLD_VERSION)"?')
+ifeq (, $(VERSION))
+VERSION=$(shell rg -o --no-filename 'MARKETING_VERSION = ([^;]+).+' -r '$$1' *.xcodeproj/project.pbxproj | head -1)
 endif
 
-clean:
-	xcodebuild -scheme "$(SCHEME)" -configuration $(ENV) ONLY_ACTIVE_ARCH=NO clean
-
-build: BEAUTIFY=1
-build: ONLY_ACTIVE_ARCH=NO
-build: setversion
-ifneq ($(BEAUTIFY),0)
-	xcodebuild -scheme "$(SCHEME)" -configuration $(ENV) ONLY_ACTIVE_ARCH=$(ONLY_ACTIVE_ARCH) | tee /tmp/$(SCHEME)-$(ENV)-build.log | xcbeautify
+ifneq (, $(BETA))
+FULL_VERSION:=$(VERSION)b$(BETA)
 else
-	xcodebuild -scheme "$(SCHEME)" -configuration $(ENV) ONLY_ACTIVE_ARCH=$(ONLY_ACTIVE_ARCH) | tee /tmp/$(SCHEME)-$(ENV)-build.log
+FULL_VERSION:=$(VERSION)
 endif
 
-appcast: GENERATE_APPCAST=$(shell dirname $$(dirname $$(dirname $$(xcodebuild -scheme "$(SCHEME)" -configuration $(ENV) -showBuildSettings -json 2>/dev/null | jq -r .[0].buildSettings.BUILT_PRODUCTS_DIR))))/SourcePackages/artifacts/sparkle/bin/generate_appcast
-appcast: Releases/$(SCHEME)-$(VERSION).html Releases/CHANGELOG.html
-	$(GENERATE_APPCAST) Releases/
+RELEASE_NOTES_FILES := $(wildcard ReleaseNotes/*.md)
+ENV=Release
+DERIVED_DATA_DIR=$(shell ls -td $$HOME/Library/Developer/Xcode/DerivedData/ZoomHider-* | head -1)
 
-Releases/$(SCHEME)-%.html: ReleaseNotes/%.md
-	@echo Compiling $< to $@
-	@md2html --github -o $@ $<
+.PHONY: build upload release appcast setversion
+
+print-%  : ; @echo $* = $($*)
+
+build: SHELL=fish
+build:
+	make-app --build --devid --dmg -s ZoomHider -c Release --version $(VERSION)
+	xcp /tmp/apps/ZoomHider-$(VERSION).dmg Releases/
 
 upload:
-	rsync -avzP Releases/ darkwoods:/static/lowtechguys/$(SCHEME)
+	rsync -avzP Releases/*.{delta,dmg} hetzner:/static/lowtechguys/releases/ || true
+	rsync -avz Releases/*.html hetzner:/static/lowtechguys/ReleaseNotes/
+	rsync -avzP Releases/appcast.xml hetzner:/static/lowtechguys/zoomhider/
 	cfcli -d lowtechguys.com purge
 
+release:
+	gh release create v$(VERSION) -F ReleaseNotes/$(VERSION).md "Releases/ZoomHider-$(VERSION).dmg#ZoomHider.dmg"
+
+appcast: Releases/ZoomHider-$(FULL_VERSION).html
+	rm Releases/ZoomHider.dmg || true
+ifneq (, $(BETA))
+	rm Releases/ZoomHider$(FULL_VERSION)*.delta >/dev/null 2>/dev/null || true
+	generate_appcast --channel beta --maximum-versions 10 --link "https://lowtechguys.com/zoomhider" --full-release-notes-url "https://github.com/FuzzyIdeas/ZoomHider/releases" --release-notes-url-prefix https://files.lowtechguys.com/ReleaseNotes/ --download-url-prefix "https://files.lowtechguys.com/releases/" -o Releases/appcast.xml Releases
+else
+	rm Releases/ZoomHider$(FULL_VERSION)*.delta >/dev/null 2>/dev/null || true
+	rm Releases/ZoomHider-*b*.dmg >/dev/null 2>/dev/null || true
+	rm Releases/ZoomHider*b*.delta >/dev/null 2>/dev/null || true
+	generate_appcast --maximum-versions 10 --link "https://lowtechguys.com/zoomhider" --full-release-notes-url "https://github.com/FuzzyIdeas/ZoomHider/releases" --release-notes-url-prefix https://files.lowtechguys.com/ReleaseNotes/ --download-url-prefix "https://files.lowtechguys.com/releases/" -o Releases/appcast.xml Releases
+	cp Releases/ZoomHider-$(FULL_VERSION).dmg Releases/ZoomHider.dmg
+endif
+
+
+setversion: OLD_VERSION=$(shell rg -o --no-filename 'MARKETING_VERSION = ([^;]+).+' -r '$1' | head -1)
+setversion:
+ifneq (, $(FULL_VERSION))
+	rg -l 'VERSION = "?$(OLD_VERSION)"?' && sed -E -i .bkp 's/VERSION = "?$(OLD_VERSION)"?/VERSION = $(FULL_VERSION)/g' $$(rg -l 'VERSION = "?$(OLD_VERSION)"?')
+endif
+
+Releases/ZoomHider-%.html: ReleaseNotes/$(VERSION)*.md
+	@echo Compiling $^ to $@
+ifneq (, $(BETA))
+	pandoc -f gfm -o $@ --standalone --metadata title="ZoomHider $(FULL_VERSION) - Release Notes" --css https://files.lowtechguys.com/release.css $(shell ls -t ReleaseNotes/$(VERSION)*.md)
+else
+	pandoc -f gfm -o $@ --standalone --metadata title="ZoomHider $(FULL_VERSION) - Release Notes" --css https://files.lowtechguys.com/release.css ReleaseNotes/$(VERSION).md
+endif

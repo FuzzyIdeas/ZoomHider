@@ -30,6 +30,7 @@ struct ContentView: View {
     @Default(.paused) var paused
     @Default(.faster) var faster
     @Default(.enablePauseKey) var enablePauseKey
+    @Default(.enableEscPauseKey) var enableEscPauseKey
     @Default(.showAdditionalInfo) var showAdditionalInfo
 
     var header: some View {
@@ -58,6 +59,9 @@ struct ContentView: View {
                         .toggleStyle(CheckboxToggleStyle(style: .circle))
                         .foregroundColor(.primary)
 
+                    Toggle("Press Esc 3x to show/hide controls", isOn: $enableEscPauseKey)
+                        .toggleStyle(CheckboxToggleStyle(style: .circle))
+                        .foregroundColor(.primary)
                     Toggle("Enable the hide/show controls hotkey", isOn: $enablePauseKey)
                         .toggleStyle(CheckboxToggleStyle(style: .circle))
                         .foregroundColor(.primary)

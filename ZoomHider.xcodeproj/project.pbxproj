@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		C76ADF2C28BD1A900053B554 /* LowtechIndie in Frameworks */ = {isa = PBXBuildFile; productRef = C76ADF2B28BD1A900053B554 /* LowtechIndie */; };
-		C7C52BD027EBB471006B2447 /* Workarounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C52BCF27EBB471006B2447 /* Workarounds.swift */; };
 		C7CC6DBD2771B2D2002E2746 /* ZoomHiderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CC6DBC2771B2D2002E2746 /* ZoomHiderApp.swift */; };
 		C7CC6DBF2771B2D2002E2746 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CC6DBE2771B2D2002E2746 /* ContentView.swift */; };
 		C7CC6DC12771B2D2002E2746 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7CC6DC02771B2D2002E2746 /* Assets.xcassets */; };
@@ -18,7 +17,6 @@
 
 /* Begin PBXFileReference section */
 		C702D9D8277235FA00F27B93 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		C7C52BCF27EBB471006B2447 /* Workarounds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workarounds.swift; sourceTree = "<group>"; };
 		C7CC6DB92771B2D1002E2746 /* ZoomHider.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZoomHider.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7CC6DBC2771B2D2002E2746 /* ZoomHiderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomHiderApp.swift; sourceTree = "<group>"; };
 		C7CC6DBE2771B2D2002E2746 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -73,7 +71,6 @@
 				C7CC6DC02771B2D2002E2746 /* Assets.xcassets */,
 				C7CC6DC52771B2D2002E2746 /* ZoomHider.entitlements */,
 				C7CC6DC22771B2D2002E2746 /* Preview Content */,
-				C7C52BCF27EBB471006B2447 /* Workarounds.swift */,
 			);
 			path = ZoomHider;
 			sourceTree = "<group>";
@@ -188,7 +185,6 @@
 			files = (
 				C7CC6DBF2771B2D2002E2746 /* ContentView.swift in Sources */,
 				C7CC6DBD2771B2D2002E2746 /* ZoomHiderApp.swift in Sources */,
-				C7C52BD027EBB471006B2447 /* Workarounds.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,11 +312,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ZoomHider/ZoomHider.entitlements;
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Developer ID Application";
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1.0.0;
+				CURRENT_PROJECT_VERSION = 1.1.0;
 				DEVELOPMENT_ASSET_PATHS = "\"ZoomHider/Preview Content\"";
-				DEVELOPMENT_TEAM = RDDXV84A73;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=macosx*]" = RDDXV84A73;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
@@ -335,9 +333,10 @@
 				);
 				LLVM_LTO = YES;
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.lowtechguys.ZoomHider;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG PADDLE";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -350,11 +349,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ZoomHider/ZoomHider.entitlements;
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Developer ID Application";
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1.0.0;
+				CURRENT_PROJECT_VERSION = 1.1.0;
 				DEVELOPMENT_ASSET_PATHS = "\"ZoomHider/Preview Content\"";
-				DEVELOPMENT_TEAM = RDDXV84A73;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=macosx*]" = RDDXV84A73;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
@@ -369,9 +370,10 @@
 				);
 				LLVM_LTO = YES;
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.lowtechguys.ZoomHider;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = PADDLE;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

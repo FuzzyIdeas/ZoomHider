@@ -6,7 +6,7 @@
       "location" : "https://github.com/alin23/AppReceiptValidator.git",
       "state" : {
         "branch" : "main",
-        "revision" : "d9ee2be62eb84308573a37eb69978f6ca4fdf9f7"
+        "revision" : "74e9b64756a90a801c64bf089311bd1993e86faa"
       }
     },
     {
@@ -33,7 +33,7 @@
       "location" : "https://github.com/Kitura/BlueECC",
       "state" : {
         "branch" : "master",
-        "revision" : "baf6ed3fc1a622675f0041b4aff7c02dd1a93818"
+        "revision" : "1485268a54f8135435a825a855e733f026fa6cc8"
       }
     },
     {
@@ -41,8 +41,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/sindresorhus/Defaults",
       "state" : {
-        "revision" : "981ccb0a01c54abbe3c12ccb8226108527bbf115",
-        "version" : "6.3.0"
+        "revision" : "11b6adbfcb784a71bc9076c0e83ecd67952060e8",
+        "version" : "7.3.0"
       }
     },
     {
@@ -64,12 +64,12 @@
       }
     },
     {
-      "identity" : "fuzzyfind",
+      "identity" : "fuzzymatcher",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/alin23/FuzzyFind",
+      "location" : "https://github.com/alin23/FuzzyMatcher",
       "state" : {
         "branch" : "main",
-        "revision" : "549d644bbebdbc8792ee5ceb2c2801c80a225af3"
+        "revision" : "b97b7b900faf2a3881b5536be0f50b5c904c2798"
       }
     },
     {
@@ -78,7 +78,7 @@
       "location" : "https://github.com/sindresorhus/LaunchAtLogin",
       "state" : {
         "branch" : "main",
-        "revision" : "e8171b3e38a2816f579f58f3dac1522aa39efe41"
+        "revision" : "8e28b5e5a9561ace33a26c55d78f74963fbce6f9"
       }
     },
     {
@@ -87,7 +87,7 @@
       "location" : "https://github.com/FuzzyIdeas/Lowtech",
       "state" : {
         "branch" : "main",
-        "revision" : "0ab5e55c0658b858878d5e011d0b14fbb950c93d"
+        "revision" : "9ad90f5bec970098eaee0464a24f9994b5f1f585"
       }
     },
     {
@@ -104,8 +104,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/marcprux/MemoZ.git",
       "state" : {
-        "revision" : "212e0765f745e85694e2ed07979ccb54b5b6fcd0",
-        "version" : "1.5.0"
+        "revision" : "473ee3559b4446fb81c7197fb01293373ddf6b4a",
+        "version" : "1.5.2"
       }
     },
     {
@@ -114,7 +114,7 @@
       "location" : "https://github.com/alin23/PaddleSPM",
       "state" : {
         "branch" : "main",
-        "revision" : "5b0b434fc7094884a6d26dee84e348648ac60b64"
+        "revision" : "442ee896d2f75302c4b3ac83413661b7964cc766"
       }
     },
     {
@@ -149,8 +149,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/sparkle-project/Sparkle",
       "state" : {
-        "revision" : "059ce9128775d5a636c7f4716f71a58919d3111e",
-        "version" : "2.2.1"
+        "revision" : "87e4fcbac39912f9cdb9a9acf205cad60e1ca3bc",
+        "version" : "2.4.2"
       }
     },
     {
@@ -158,8 +158,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-atomics",
       "state" : {
-        "revision" : "919eb1d83e02121cdb434c7bfc1f0c66ef17febe",
-        "version" : "1.0.2"
+        "revision" : "6c89474e62719ddcc1e9614989fff2f68208fe10",
+        "version" : "1.1.0"
       }
     },
     {
