@@ -3,6 +3,21 @@
     <channel>
         <title>ZoomHider</title>
         <item>
+            <title>1.1.1</title>
+            <pubDate>Tue, 06 Aug 2024 22:59:15 +0300</pubDate>
+            <link>https://lowtechguys.com/zoomhider</link>
+            <sparkle:fullReleaseNotesLink>https://github.com/FuzzyIdeas/ZoomHider/releases</sparkle:fullReleaseNotesLink>
+            <sparkle:version>1.1.1</sparkle:version>
+            <sparkle:shortVersionString>1.1.1</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>11.0</sparkle:minimumSystemVersion>
+            <sparkle:releaseNotesLink>https://files.lowtechguys.com/ReleaseNotes/ZoomHider-1.1.1.html</sparkle:releaseNotesLink>
+            <enclosure url="https://files.lowtechguys.com/releases/ZoomHider-1.1.1.dmg" length="6914117" type="application/octet-stream" sparkle:edSignature="P4q6rW23r8QP/tJIUkGgb5LqtlG6844E2Iwn5tEI1LsKrigeeGq7pkJH3lsjXbk5fmAvu3eEZY8IGm31l0DmDQ=="/>
+            <sparkle:deltas>
+                <enclosure url="https://files.lowtechguys.com/releases/ZoomHider1.1.1-1.1.0.delta" sparkle:deltaFrom="1.1.0" length="4258718" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="865040" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,en" sparkle:edSignature="C1jDFhumTvMSbAiLfOtfZmXarq6ZUuHAb17MCVyiGAEHF/quprHLIlA6W6VspLMJjyV38VOkgn3i5H1UFBS1Ag=="/>
+                <enclosure url="https://files.lowtechguys.com/releases/ZoomHider1.1.1-1.0.0.delta" sparkle:deltaFrom="1.0.0" length="4754042" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="1381696" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,en" sparkle:edSignature="O81llzTcQi8voman7032wCyg20kruTLa3/xflEr/7gT4qAvs7j2uPLNTIjg5BY6XfnrJi4ym1tq+8ZQTM2wdAw=="/>
+            </sparkle:deltas>
+        </item>
+        <item>
             <title>1.1.0</title>
             <pubDate>Thu, 14 Sep 2023 09:46:16 +0300</pubDate>
             <sparkle:version>1.1.0</sparkle:version>

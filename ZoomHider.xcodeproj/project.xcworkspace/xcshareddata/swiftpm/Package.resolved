@@ -1,12 +1,13 @@
 {
+  "originHash" : "d243d92725f11028538f0d11b5f9aaa21b7443857d99f87c6c1bc9e4ca3ee268",
   "pins" : [
     {
       "identity" : "appreceiptvalidator",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/alin23/AppReceiptValidator.git",
+      "location" : "https://github.com/alin23/AppReceiptValidator",
       "state" : {
-        "branch" : "main",
-        "revision" : "74e9b64756a90a801c64bf089311bd1993e86faa"
+        "revision" : "e35794a03103839e024f71534e263310038c930d",
+        "version" : "1.2.0"
       }
     },
     {
@@ -41,8 +42,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/sindresorhus/Defaults",
       "state" : {
-        "revision" : "11b6adbfcb784a71bc9076c0e83ecd67952060e8",
-        "version" : "7.3.0"
+        "revision" : "3efef5a28ebdbbe922d4a2049493733ed14475a6",
+        "version" : "7.3.1"
       }
     },
     {
@@ -69,7 +70,7 @@
       "location" : "https://github.com/alin23/FuzzyMatcher",
       "state" : {
         "branch" : "main",
-        "revision" : "b97b7b900faf2a3881b5536be0f50b5c904c2798"
+        "revision" : "6c7628a46a566d64d6b7d79068c95bf80c8a6bd6"
       }
     },
     {
@@ -78,7 +79,7 @@
       "location" : "https://github.com/sindresorhus/LaunchAtLogin",
       "state" : {
         "branch" : "main",
-        "revision" : "8e28b5e5a9561ace33a26c55d78f74963fbce6f9"
+        "revision" : "9a894d799269cb591037f9f9cb0961510d4dca81"
       }
     },
     {
@@ -87,7 +88,7 @@
       "location" : "https://github.com/FuzzyIdeas/Lowtech",
       "state" : {
         "branch" : "main",
-        "revision" : "9ad90f5bec970098eaee0464a24f9994b5f1f585"
+        "revision" : "486ed200f87a977a9e82d4a978e675b0e74ae182"
       }
     },
     {
@@ -96,7 +97,7 @@
       "location" : "https://github.com/alin23/Magnet",
       "state" : {
         "branch" : "dev",
-        "revision" : "fda73dc564372e98b5e5e6f5452a19f6b92a0382"
+        "revision" : "a21e6c4fd0fdb0244009e7c1fce64b31a01c39ca"
       }
     },
     {
@@ -114,7 +115,7 @@
       "location" : "https://github.com/alin23/PaddleSPM",
       "state" : {
         "branch" : "main",
-        "revision" : "442ee896d2f75302c4b3ac83413661b7964cc766"
+        "revision" : "d5446f4274ed2f01701758f40c9253b93fc43dd9"
       }
     },
     {
@@ -122,8 +123,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/mxcl/Path.swift",
       "state" : {
-        "revision" : "9c6f807b0a76be0e27aecc908bc6f173400d839e",
-        "version" : "1.4.0"
+        "revision" : "8e355c28e9393c42e58b18c54cace2c42c98a616",
+        "version" : "1.4.1"
       }
     },
     {
@@ -149,8 +150,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/sparkle-project/Sparkle",
       "state" : {
-        "revision" : "87e4fcbac39912f9cdb9a9acf205cad60e1ca3bc",
-        "version" : "2.4.2"
+        "revision" : "0ef1ee0220239b3776f433314515fd849025673f",
+        "version" : "2.6.4"
       }
     },
     {
@@ -158,8 +159,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-atomics",
       "state" : {
-        "revision" : "6c89474e62719ddcc1e9614989fff2f68208fe10",
-        "version" : "1.1.0"
+        "revision" : "cd142fd2f64be2100422d658e7411e39489da985",
+        "version" : "1.2.0"
       }
     },
     {
@@ -167,8 +168,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-crypto",
       "state" : {
-        "revision" : "ddb07e896a2a8af79512543b1c7eb9797f8898a5",
-        "version" : "1.1.7"
+        "revision" : "60f13f60c4d093691934dc6cfdf5f508ada1f894",
+        "version" : "2.6.0"
       }
     },
     {
@@ -199,5 +200,5 @@
       }
     }
   ],
-  "version" : 2
+  "version" : 3
 }
