@@ -29,15 +29,6 @@
       }
     },
     {
-      "identity" : "blueecc",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/Kitura/BlueECC",
-      "state" : {
-        "branch" : "master",
-        "revision" : "1485268a54f8135435a825a855e733f026fa6cc8"
-      }
-    },
-    {
       "identity" : "defaults",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/sindresorhus/Defaults",
@@ -65,21 +56,12 @@
       }
     },
     {
-      "identity" : "fuzzymatcher",
+      "identity" : "launchatlogin-modern",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/alin23/FuzzyMatcher",
+      "location" : "https://github.com/sindresorhus/LaunchAtLogin-Modern",
       "state" : {
-        "branch" : "main",
-        "revision" : "6c7628a46a566d64d6b7d79068c95bf80c8a6bd6"
-      }
-    },
-    {
-      "identity" : "launchatlogin",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/sindresorhus/LaunchAtLogin",
-      "state" : {
-        "branch" : "main",
-        "revision" : "9a894d799269cb591037f9f9cb0961510d4dca81"
+        "revision" : "a04ec1c363be3627734f6dad757d82f5d4fa8fcc",
+        "version" : "1.1.0"
       }
     },
     {
@@ -87,8 +69,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/FuzzyIdeas/Lowtech",
       "state" : {
-        "branch" : "main",
-        "revision" : "486ed200f87a977a9e82d4a978e675b0e74ae182"
+        "branch" : "ventura",
+        "revision" : "533161444ef484a95398f1af4d61904c0cff211a"
       }
     },
     {
@@ -96,17 +78,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/alin23/Magnet",
       "state" : {
-        "branch" : "dev",
-        "revision" : "a21e6c4fd0fdb0244009e7c1fce64b31a01c39ca"
-      }
-    },
-    {
-      "identity" : "memoz",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/marcprux/MemoZ.git",
-      "state" : {
-        "revision" : "473ee3559b4446fb81c7197fb01293373ddf6b4a",
-        "version" : "1.5.2"
+        "revision" : "45cadc3e5f95d33bddea532886370d09257af45d",
+        "version" : "4.1.2"
       }
     },
     {
@@ -114,26 +87,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/alin23/PaddleSPM",
       "state" : {
-        "branch" : "main",
-        "revision" : "d5446f4274ed2f01701758f40c9253b93fc43dd9"
-      }
-    },
-    {
-      "identity" : "path.swift",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/mxcl/Path.swift",
-      "state" : {
-        "revision" : "8e355c28e9393c42e58b18c54cace2c42c98a616",
-        "version" : "1.4.1"
-      }
-    },
-    {
-      "identity" : "regexswiftold",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/alin23/RegexSwiftOld",
-      "state" : {
-        "revision" : "7f24e8ff7cbae75c333f6e080a422855d1a7d961",
-        "version" : "1.3.0"
+        "revision" : "d5446f4274ed2f01701758f40c9253b93fc43dd9",
+        "version" : "4.4.3"
       }
     },
     {
@@ -143,6 +98,24 @@
       "state" : {
         "revision" : "2fcf7e43a242b183fdea3f2275ebec0d773b65f5",
         "version" : "2.2.0"
+      }
+    },
+    {
+      "identity" : "sentry-cocoa",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/getsentry/sentry-cocoa",
+      "state" : {
+        "revision" : "d2ced2d961b34573ebd2ea0567a2f1408e90f0ae",
+        "version" : "8.34.0"
+      }
+    },
+    {
+      "identity" : "setapp-framework",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/MacPaw/Setapp-framework",
+      "state" : {
+        "revision" : "595cb24b4decf15f04888a1cb1e191ace02cdc7c",
+        "version" : "4.2.1"
       }
     },
     {
@@ -177,8 +150,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/malcommac/SwiftDate",
       "state" : {
-        "revision" : "6190d0cefff3013e77ed567e6b074f324e5c5bf5",
-        "version" : "6.3.1"
+        "revision" : "5d943224c3bb173e6ecf27295611615eba90c80e",
+        "version" : "7.0.0"
       }
     },
     {
@@ -188,15 +161,6 @@
       "state" : {
         "revision" : "5127afab23337699a714e036588f02d9481ae612",
         "version" : "1.2.0"
-      }
-    },
-    {
-      "identity" : "visualeffects",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/twostraws/VisualEffects",
-      "state" : {
-        "revision" : "8ff7f90f9650d9db5774275d0b1f07ef642ecf4d",
-        "version" : "1.0.3"
       }
     }
   ],

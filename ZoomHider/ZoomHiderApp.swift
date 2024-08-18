@@ -143,7 +143,7 @@ class AppDelegate: LowtechIndieAppDelegate {
 
     @MainActor
     lazy var globalKeyMonitor = GlobalEventMonitor(mask: .keyDown) { event in
-        guard let event, event.keyCode == SauceKey.escape.QWERTYKeyCode, !event.modifierFlags.containsSupportedModifiers else {
+        guard event.keyCode == SauceKey.escape.QWERTYKeyCode, !event.modifierFlags.containsSupportedModifiers else {
             return
         }
         self.escKeyPressedCount += 1
@@ -188,8 +188,9 @@ class AppDelegate: LowtechIndieAppDelegate {
         showPopoverOnFirstLaunch = false
         KM.specialKey = Defaults[.enablePauseKey] ? .z : nil
         showPopoverOnSpecialKey = false
-        NSApp.windows.first?.close()
-        accentColor = Colors.blue.blended(withFraction: 0.3, of: .white)
+
+        NSApp.windows.first(where: { $0.title == "Settings" })?.close()
+        accentColor = Color.blue.blended(withFraction: 0.3, of: .white)
         contentView = AnyView(erasing: ContentView(app: self))
         if Defaults[.enableEscPauseKey] {
             globalKeyMonitor.stop()

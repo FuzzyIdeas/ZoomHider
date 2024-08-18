@@ -3,6 +3,22 @@
     <channel>
         <title>ZoomHider</title>
         <item>
+            <title>1.2.0</title>
+            <pubDate>Sun, 18 Aug 2024 15:28:58 +0300</pubDate>
+            <link>https://lowtechguys.com/zoomhider</link>
+            <sparkle:fullReleaseNotesLink>https://github.com/FuzzyIdeas/ZoomHider/releases</sparkle:fullReleaseNotesLink>
+            <sparkle:version>1.2.0</sparkle:version>
+            <sparkle:shortVersionString>1.2.0</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>13.0</sparkle:minimumSystemVersion>
+            <sparkle:releaseNotesLink>https://files.lowtechguys.com/ReleaseNotes/ZoomHider-1.2.0.html</sparkle:releaseNotesLink>
+            <enclosure url="https://files.lowtechguys.com/releases/ZoomHider-1.2.0.dmg" length="2991148" type="application/octet-stream" sparkle:edSignature="+EIpE7SmlUEs8aAh3NHMpMjisJxNNEq4HEIRXabWvfZwVHi4O8h33vODKolgpxAE7PawTbVSNmz476cjuaIgCA=="/>
+            <sparkle:deltas>
+                <enclosure url="https://files.lowtechguys.com/releases/ZoomHider1.2.0-1.1.1.delta" sparkle:deltaFrom="1.1.1" length="330714" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="864784" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,en" sparkle:edSignature="6/sBYi4guEw++0DZtrNA5mj0SMGpKCUIVXGQhhchi8NFRr4/iZhiCnw0zmyijqMawVHHb+RVE4LccaP/znc4BA=="/>
+                <enclosure url="https://files.lowtechguys.com/releases/ZoomHider1.2.0-1.1.0.delta" sparkle:deltaFrom="1.1.0" length="841110" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="865040" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,en" sparkle:edSignature="2uScC6SYre2lKrdlMDBBKq0cY238IAHYgguPgdUh8rugPECKrpNbkglgYcM5Ae7RE9YMVf0bDQTJH0xr1pXsDA=="/>
+                <enclosure url="https://files.lowtechguys.com/releases/ZoomHider1.2.0-1.0.0.delta" sparkle:deltaFrom="1.0.0" length="1046858" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="1381696" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,en" sparkle:edSignature="h2XElq8PlIisCr5w0pa34uvXQgxM1NVs4LJ9KoivhjviKWZKTZARC0vDwe97bfTmlxYDEQDkuJpDP2W0/l0vCQ=="/>
+            </sparkle:deltas>
+        </item>
+        <item>
             <title>1.1.1</title>
             <pubDate>Tue, 06 Aug 2024 22:59:15 +0300</pubDate>
             <link>https://lowtechguys.com/zoomhider</link>

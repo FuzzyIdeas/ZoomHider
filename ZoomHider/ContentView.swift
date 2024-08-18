@@ -9,7 +9,6 @@ import LaunchAtLogin
 import Lowtech
 import LowtechIndie
 import SwiftUI
-import VisualEffects
 
 let WINDOW_WIDTH: CGFloat = 310
 let WINDOW_PADDING_HORIZONTAL: CGFloat = 40
@@ -23,8 +22,6 @@ extension Defaults.Keys {
 
 struct ContentView: View {
     @Environment(\.colorScheme) var colorScheme
-    @Environment(\.colors) var colors
-    @ObservedObject var launchAtLogin = LaunchAtLogin.observable
     @ObservedObject var app: AppDelegate
     @Default(.hideMenubarIcon) var hideMenubarIcon
     @Default(.paused) var paused
@@ -39,7 +36,7 @@ struct ContentView: View {
             if !hideMenubarIcon {
                 Spacer()
                 Button("Close window") { app.statusBar?.hidePopover(app) }
-                    .buttonStyle(FlatButton(color: Colors.red.opacity(0.7), textColor: .white))
+                    .buttonStyle(FlatButton(color: Color.red.opacity(0.7), textColor: .white))
                     .font(.system(size: 12, weight: .semibold, design: .monospaced))
                     .keyboardShortcut(KeyEquivalent("w"), modifiers: [.command])
             }
@@ -97,7 +94,7 @@ struct ContentView: View {
                     Toggle("Hide menubar icon", isOn: $hideMenubarIcon)
                         .toggleStyle(CheckboxToggleStyle(style: .circle))
                         .foregroundColor(.primary)
-                    Toggle("Launch at login", isOn: $launchAtLogin.isEnabled)
+                    LaunchAtLogin.Toggle()
                         .toggleStyle(CheckboxToggleStyle(style: .circle))
                         .foregroundColor(.primary)
                 }
@@ -107,7 +104,7 @@ struct ContentView: View {
                 VStack(alignment: .leading, spacing: 4) {
                     Toggle("\(showAdditionalInfo ? "Hide" : "Show") app info", isOn: $showAdditionalInfo.animation(.fastSpring))
                         .toggleStyle(DetailToggleStyle(style: .circle))
-                        .foregroundColor(colors.gray)
+                        .foregroundColor(Color.gray)
                         .font(.system(size: 12, weight: .semibold))
                     if showAdditionalInfo {
                         VersionView(updater: AppDelegate.shared.updateController.updater).padding(.bottom, 6)
@@ -132,9 +129,9 @@ struct ContentView: View {
                 .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
                 .padding(.horizontal, 20)
                 .padding(.bottom, 20)
-                .shadow(color: Colors.blackMauve.opacity(colorScheme == .dark ? 0.5 : 0.3), radius: 4, x: 0, y: 4)
+                .shadow(color: Color.blackMauve.opacity(colorScheme == .dark ? 0.5 : 0.3), radius: 4, x: 0, y: 4)
             RoundedRectangle(cornerRadius: 18, style: .continuous)
-                .fill(Colors.blue.opacity(0.1))
+                .fill(Color.blue.opacity(0.1))
                 .padding(.horizontal, 20)
                 .padding(.bottom, 20)
         }
@@ -156,7 +153,7 @@ struct ContentView: View {
             Button("Quit") {
                 NSApplication.shared.terminate(self)
             }
-            .buttonStyle(FlatButton(color: Colors.red, textColor: colors.inverted))
+            .buttonStyle(FlatButton(color: Color.red, textColor: Color.inverted))
             .font(.system(size: 13, weight: .semibold))
             .keyboardShortcut(KeyEquivalent("q"), modifiers: [.command])
         }.frame(maxWidth: .infinity)
