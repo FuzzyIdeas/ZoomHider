@@ -189,7 +189,7 @@ class AppDelegate: LowtechIndieAppDelegate {
         KM.specialKey = Defaults[.enablePauseKey] ? .z : nil
         showPopoverOnSpecialKey = false
 
-        NSApp.windows.first(where: { $0.title == "Settings" })?.close()
+        NSApp.windows.first(where: { $0.title == "ZoomHider Settings" })?.close()
         accentColor = Color.blue.blended(withFraction: 0.3, of: .white)
         contentView = AnyView(erasing: ContentView(app: self))
         if Defaults[.enableEscPauseKey] {

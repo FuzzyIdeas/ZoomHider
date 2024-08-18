@@ -33,7 +33,7 @@ build:
 upload:
 	rsync -avzP Releases/*.{delta,dmg} hetzner:/static/lowtechguys/releases/ || true
 	rsync -avz Releases/*.html hetzner:/static/lowtechguys/ReleaseNotes/
-	rsync -avzP Releases/appcast.xml hetzner:/static/lowtechguys/zoomhider/
+	rsync -avzP Releases/appcast.xml hetzner:/static/lowtechguys/ZoomHider/
 	cfcli -d lowtechguys.com purge
 
 release:
