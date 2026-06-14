@@ -38,6 +38,7 @@ upload:
 
 release:
 	gh release create v$(VERSION) -F ReleaseNotes/$(VERSION).md "Releases/ZoomHider-$(VERSION).dmg#ZoomHider.dmg"
+	git fetch --tags
 
 appcast: Releases/ZoomHider-$(FULL_VERSION).html
 	rm Releases/ZoomHider.dmg || true
