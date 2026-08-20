@@ -1,168 +1,168 @@
 {
-  "originHash" : "d243d92725f11028538f0d11b5f9aaa21b7443857d99f87c6c1bc9e4ca3ee268",
-  "pins" : [
+  "originHash": "d243d92725f11028538f0d11b5f9aaa21b7443857d99f87c6c1bc9e4ca3ee268",
+  "pins": [
     {
-      "identity" : "appreceiptvalidator",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/alin23/AppReceiptValidator",
-      "state" : {
-        "revision" : "e35794a03103839e024f71534e263310038c930d",
-        "version" : "1.2.0"
+      "identity": "appreceiptvalidator",
+      "kind": "remoteSourceControl",
+      "location": "https://github.com/alin23/AppReceiptValidator",
+      "state": {
+        "revision": "e35794a03103839e024f71534e263310038c930d",
+        "version": "1.2.0"
       }
     },
     {
-      "identity" : "asn1decoder",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/IdeasOnCanvas/ASN1Decoder",
-      "state" : {
-        "revision" : "1fa1e9c68c27cbed56e2a997605ae2e808cf4d98",
-        "version" : "1.8.2"
+      "identity": "asn1decoder",
+      "kind": "remoteSourceControl",
+      "location": "https://github.com/IdeasOnCanvas/ASN1Decoder",
+      "state": {
+        "revision": "1fa1e9c68c27cbed56e2a997605ae2e808cf4d98",
+        "version": "1.8.2"
       }
     },
     {
-      "identity" : "axswift",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/tmandry/AXSwift",
-      "state" : {
-        "branch" : "main",
-        "revision" : "e18a18453d135ad45809a384ee5139e05ea52def"
+      "identity": "axswift",
+      "kind": "remoteSourceControl",
+      "location": "https://github.com/tmandry/AXSwift",
+      "state": {
+        "branch": "main",
+        "revision": "e18a18453d135ad45809a384ee5139e05ea52def"
       }
     },
     {
-      "identity" : "defaults",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/sindresorhus/Defaults",
-      "state" : {
-        "revision" : "3efef5a28ebdbbe922d4a2049493733ed14475a6",
-        "version" : "7.3.1"
+      "identity": "defaults",
+      "kind": "remoteSourceControl",
+      "location": "https://github.com/sindresorhus/Defaults",
+      "state": {
+        "revision": "3efef5a28ebdbbe922d4a2049493733ed14475a6",
+        "version": "7.3.1"
       }
     },
     {
-      "identity" : "dynamiccolor",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/yannickl/DynamicColor",
-      "state" : {
-        "revision" : "d9beca13ca85baa50ee29832d0db5129fba69630",
-        "version" : "5.0.1"
+      "identity": "dynamiccolor",
+      "kind": "remoteSourceControl",
+      "location": "https://github.com/yannickl/DynamicColor",
+      "state": {
+        "revision": "d9beca13ca85baa50ee29832d0db5129fba69630",
+        "version": "5.0.1"
       }
     },
     {
-      "identity" : "fsevents",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/eonil/FSEvents",
-      "state" : {
-        "revision" : "e6b7cdfa2754454e194a45ee6c2004d0f630fe88",
-        "version" : "0.1.7"
+      "identity": "fsevents",
+      "kind": "remoteSourceControl",
+      "location": "https://github.com/eonil/FSEvents",
+      "state": {
+        "revision": "e6b7cdfa2754454e194a45ee6c2004d0f630fe88",
+        "version": "0.1.7"
       }
     },
     {
-      "identity" : "launchatlogin-modern",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/sindresorhus/LaunchAtLogin-Modern",
-      "state" : {
-        "revision" : "a04ec1c363be3627734f6dad757d82f5d4fa8fcc",
-        "version" : "1.1.0"
+      "identity": "launchatlogin-modern",
+      "kind": "remoteSourceControl",
+      "location": "https://github.com/sindresorhus/LaunchAtLogin-Modern",
+      "state": {
+        "revision": "a04ec1c363be3627734f6dad757d82f5d4fa8fcc",
+        "version": "1.1.0"
       }
     },
     {
-      "identity" : "lowtech",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/FuzzyIdeas/Lowtech",
-      "state" : {
-        "branch" : "ventura",
-        "revision" : "827a049156e6f4304d5377d51f9076883fca3dc5"
+      "identity": "lowtech",
+      "kind": "remoteSourceControl",
+      "location": "https://github.com/FuzzyIdeas/Lowtech",
+      "state": {
+        "branch": "ventura",
+        "revision": "e303a3c08ff1d045d2a5a865aafed6944219edee"
       }
     },
     {
-      "identity" : "magnet",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/alin23/Magnet",
-      "state" : {
-        "revision" : "45cadc3e5f95d33bddea532886370d09257af45d",
-        "version" : "4.1.2"
+      "identity": "magnet",
+      "kind": "remoteSourceControl",
+      "location": "https://github.com/alin23/Magnet",
+      "state": {
+        "revision": "45cadc3e5f95d33bddea532886370d09257af45d",
+        "version": "4.1.2"
       }
     },
     {
-      "identity" : "paddlespm",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/alin23/PaddleSPM",
-      "state" : {
-        "revision" : "d5446f4274ed2f01701758f40c9253b93fc43dd9",
-        "version" : "4.4.3"
+      "identity": "paddlespm",
+      "kind": "remoteSourceControl",
+      "location": "https://github.com/alin23/PaddleSPM",
+      "state": {
+        "revision": "d5446f4274ed2f01701758f40c9253b93fc43dd9",
+        "version": "4.4.3"
       }
     },
     {
-      "identity" : "sauce",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/Clipy/Sauce",
-      "state" : {
-        "revision" : "2fcf7e43a242b183fdea3f2275ebec0d773b65f5",
-        "version" : "2.2.0"
+      "identity": "sauce",
+      "kind": "remoteSourceControl",
+      "location": "https://github.com/Clipy/Sauce",
+      "state": {
+        "revision": "2fcf7e43a242b183fdea3f2275ebec0d773b65f5",
+        "version": "2.2.0"
       }
     },
     {
-      "identity" : "sentry-cocoa",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/getsentry/sentry-cocoa",
-      "state" : {
-        "revision" : "d2ced2d961b34573ebd2ea0567a2f1408e90f0ae",
-        "version" : "8.34.0"
+      "identity": "sentry-cocoa",
+      "kind": "remoteSourceControl",
+      "location": "https://github.com/getsentry/sentry-cocoa",
+      "state": {
+        "revision": "d2ced2d961b34573ebd2ea0567a2f1408e90f0ae",
+        "version": "8.34.0"
       }
     },
     {
-      "identity" : "setapp-framework",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/MacPaw/Setapp-framework",
-      "state" : {
-        "revision" : "595cb24b4decf15f04888a1cb1e191ace02cdc7c",
-        "version" : "4.2.1"
+      "identity": "setapp-framework",
+      "kind": "remoteSourceControl",
+      "location": "https://github.com/MacPaw/Setapp-framework",
+      "state": {
+        "revision": "595cb24b4decf15f04888a1cb1e191ace02cdc7c",
+        "version": "4.2.1"
       }
     },
     {
-      "identity" : "sparkle",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/sparkle-project/Sparkle",
-      "state" : {
-        "revision" : "d46d456107feacc80711b21847b82b07bd9fb46e",
-        "version" : "2.9.3"
+      "identity": "sparkle",
+      "kind": "remoteSourceControl",
+      "location": "https://github.com/sparkle-project/Sparkle",
+      "state": {
+        "revision": "d46d456107feacc80711b21847b82b07bd9fb46e",
+        "version": "2.9.3"
       }
     },
     {
-      "identity" : "swift-atomics",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/apple/swift-atomics",
-      "state" : {
-        "revision" : "cd142fd2f64be2100422d658e7411e39489da985",
-        "version" : "1.2.0"
+      "identity": "swift-atomics",
+      "kind": "remoteSourceControl",
+      "location": "https://github.com/apple/swift-atomics",
+      "state": {
+        "revision": "cd142fd2f64be2100422d658e7411e39489da985",
+        "version": "1.2.0"
       }
     },
     {
-      "identity" : "swift-crypto",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/apple/swift-crypto",
-      "state" : {
-        "revision" : "60f13f60c4d093691934dc6cfdf5f508ada1f894",
-        "version" : "2.6.0"
+      "identity": "swift-crypto",
+      "kind": "remoteSourceControl",
+      "location": "https://github.com/apple/swift-crypto",
+      "state": {
+        "revision": "60f13f60c4d093691934dc6cfdf5f508ada1f894",
+        "version": "2.6.0"
       }
     },
     {
-      "identity" : "swiftdate",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/malcommac/SwiftDate",
-      "state" : {
-        "revision" : "5d943224c3bb173e6ecf27295611615eba90c80e",
-        "version" : "7.0.0"
+      "identity": "swiftdate",
+      "kind": "remoteSourceControl",
+      "location": "https://github.com/malcommac/SwiftDate",
+      "state": {
+        "revision": "5d943224c3bb173e6ecf27295611615eba90c80e",
+        "version": "7.0.0"
       }
     },
     {
-      "identity" : "swiftui-system-colors",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/diniska/swiftui-system-colors",
-      "state" : {
-        "revision" : "5127afab23337699a714e036588f02d9481ae612",
-        "version" : "1.2.0"
+      "identity": "swiftui-system-colors",
+      "kind": "remoteSourceControl",
+      "location": "https://github.com/diniska/swiftui-system-colors",
+      "state": {
+        "revision": "5127afab23337699a714e036588f02d9481ae612",
+        "version": "1.2.0"
       }
     }
   ],
-  "version" : 3
+  "version": 3
 }
