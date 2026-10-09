@@ -28,7 +28,7 @@ DERIVED_DATA_DIR=$(shell ls -td $$HOME/Library/Developer/Xcode/DerivedData/ZoomH
 # the newest one from the resolved SwiftPM artifacts, falling back to PATH.
 GENERATE_APPCAST=$(or $(shell ls -t $$HOME/Library/Developer/Xcode/DerivedData/ZoomHider-*/SourcePackages/artifacts/sparkle/Sparkle/bin/generate_appcast 2>/dev/null | head -1),generate_appcast)
 
-.PHONY: build upload release appcast setversion
+.PHONY: build upload upload-dmgs upload-deltas upload-notes release appcast setversion
 
 print-%  : ; @echo $* = $($*)
 
@@ -37,11 +37,29 @@ build:
 	make-app --build --devid --dmg -s ZoomHider -t ZoomHider -c Release --version $(VERSION)
 	xcp /tmp/apps/ZoomHider-$(VERSION).dmg Releases/
 
+# Each upload opens its own SSH connection instead of joining a shared one, which can be stale
+# or busy with forwarded traffic, and gives up when the server stops answering instead of
+# hanging. DMGs and deltas are compressed already, so only the text files are compressed.
+UPLOAD_SSH=ssh -o ControlMaster=no -o ControlPath=none -o ClearAllForwardings=yes -o Compression=no -o ConnectTimeout=15 -o ServerAliveInterval=15 -o ServerAliveCountMax=4
+UPLOAD_RSYNC=rsync -a --partial-dir=.rsync-partial -e "$(UPLOAD_SSH)"
+
+# The DMGs, the deltas and the notes go up in parallel, the appcast last so it never points
+# at a file that isn't there yet. ZoomHider.dmg is the same file as the release DMG, so the
+# server links it instead of receiving it twice.
 upload:
-	rsync -avzP Releases/*.{delta,dmg} hetzner:/static/lowtechguys/releases/ || true
-	rsync -avz Releases/*.html hetzner:/static/lowtechguys/ReleaseNotes/
-	rsync -avzP Releases/appcast.xml hetzner:/static/lowtechguys/ZoomHider/
+	$(MAKE) -j3 upload-dmgs upload-deltas upload-notes
+ifeq (, $(BETA))
+	$(UPLOAD_SSH) hetzner 'cd /static/lowtechguys/releases && ln -f ZoomHider-$(VERSION).dmg .ZoomHider.dmg && mv -f .ZoomHider.dmg ZoomHider.dmg'
+endif
+	$(UPLOAD_RSYNC) -vz Releases/appcast.xml hetzner:/static/lowtechguys/ZoomHider/
 	cfcli -d lowtechguys.com purge
+
+upload-dmgs:
+	$(UPLOAD_RSYNC) --progress $(filter-out Releases/ZoomHider.dmg,$(wildcard Releases/*.dmg)) hetzner:/static/lowtechguys/releases/
+upload-deltas:
+	$(if $(wildcard Releases/*.delta),$(UPLOAD_RSYNC) -v $(wildcard Releases/*.delta) hetzner:/static/lowtechguys/releases/)
+upload-notes:
+	$(UPLOAD_RSYNC) -vz Releases/*.html hetzner:/static/lowtechguys/ReleaseNotes/
 
 release:
 	gh release create v$(VERSION) -F ReleaseNotes/$(VERSION).md "Releases/ZoomHider-$(VERSION).dmg#ZoomHider.dmg"
