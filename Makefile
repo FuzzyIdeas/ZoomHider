@@ -34,7 +34,7 @@ print-%  : ; @echo $* = $($*)
 
 build: SHELL=fish
 build:
-	make-app --build --devid --dmg -s ZoomHider -t ZoomHider -c Release --version $(VERSION)
+	make-app --build --devid --dmg -s ZoomHider -c Release --version $(VERSION)
 	xcp /tmp/apps/ZoomHider-$(VERSION).dmg Releases/
 
 # Each upload opens its own SSH connection instead of joining a shared one, which can be stale
